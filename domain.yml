@@ -1,0 +1,71 @@
+intents:
+  - tell_name
+  - tell_date
+  - tell_company
+  - tell_no_of_days_later
+  - ask_name
+  - thanks
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+
+entities:
+  - user_name
+  - DATE
+  - company
+  - ORG
+  - days_later
+
+slots:
+  user_name:
+    type: text
+  DATE:
+    type: text
+  company:
+    type: text
+  ORG:
+    type: text
+  days_later:
+    type: text
+
+actions:
+  - action_utter_name
+  - action_acknowledge_company
+  - action_predict_price
+
+responses:
+
+  utter_acknowledge_name:
+  - text: "Hmm, I know your name now {user_name}"
+  - text: "I'll call you {user_name} from now on :)"
+
+
+  utter_greet:
+  - text: "Hey! I am a stock price predictor chatbot. I can predict the stock price of the following companies\n- Google\n- Microsoft\nWhat company would you like to see the stock price?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_date:
+  - text: "The date you mentioned was {DATE}!"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
